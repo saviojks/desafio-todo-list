@@ -26,6 +26,7 @@
   display: flex;
   align-items: flex-start;
   flex-direction: row;
+  justify-content: space-between;
   padding: 1rem;
 
   box-sizing: border-box;
@@ -45,6 +46,16 @@
   line-height: 0;
 }
 
+.inputAndText {
+  display: flex;
+  align-items: flex-start;
+}
+
+.inputAndText p {
+  margin-left: 1.5rem;
+  display: block;
+}
+
 .task {
   position: relative;
 }
@@ -61,10 +72,6 @@
   position: absolute;
   width: 1.5rem;
   height: 1.5rem;
-}
-
-.task p {
-  margin-left: 0.75rem;
 }
 
 .task label:after {

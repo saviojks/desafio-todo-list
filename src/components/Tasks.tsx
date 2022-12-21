@@ -17,7 +17,7 @@ export function Tasks() {
         },
         {
             id: 3,
-            todo: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.d sequi non voluptatum, omnis temporibus dolorum architecto ipsam dolore repudiandae.',
+            todo: ' voluptatum, omnis.',
             isCompleted: false
         },
     ])
@@ -34,9 +34,11 @@ export function Tasks() {
                     return (
 
                         <div key={task.id} className={styles.task}>
-                            <input className={styles.taskInput} onChange={() => setChecked(!checked)} checked={task.isCompleted} type="checkbox" />
-                            <label onClick={() => setChecked(!checked)} htmlFor="checkbox"></label>
-                            <p> {task.todo}</p>
+                            <div className={styles.inputAndText}>
+                                <input className={styles.taskInput} onChange={() => setChecked(!checked)} checked={task.isCompleted} type="checkbox" />
+                                <label onClick={() => setChecked(!checked)} htmlFor="checkbox"></label>
+                                <p> {task.todo}</p>
+                            </div>
                             <button className={styles.deleteButton} onClick={() => { }}>
                                 <Trash size={24} />
                             </button>
