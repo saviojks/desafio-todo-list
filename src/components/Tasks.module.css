@@ -13,6 +13,20 @@
   align-items: center;
 }
 
+.tasksHeader p {
+  color: var(--blue);
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1.105;
+}
+
+.tasksHeader p span {
+  padding: 0.128rem 0.5rem;
+  background: var(--gray-400);
+  border-radius: 999px;
+}
+
 .tasksList {
   width: 46rem;
 }
@@ -114,4 +128,17 @@
 
 .deleteButton {
   line-height: 0;
+}
+
+.isEmpty {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 15.25rem;
+  justify-content: center;
+  color: var(--gray-300);
+  line-height: 140%;
+}
+.isEmpty svg {
+  margin-bottom: 1rem;
 }
