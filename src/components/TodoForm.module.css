@@ -1,0 +1,39 @@
+.todoForm {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: calc(0px - 1.5rem - 3px);
+  height: 3.375rem;
+}
+
+.todoForm input {
+  height: 3.15rem;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-700);
+  width: 46rem;
+  border-radius: 8px;
+  padding: 1rem;
+  color: var(--gray-100);
+}
+
+.submitBtn {
+  background: var(--blue-dark);
+  height: 3.25rem;
+  width: 5.625rem;
+  color: var(--gray-100);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  font-weight: bold;
+}
+.submitBtn:hover {
+  background: var(--blue);
+}
+
+.submitBtn svg {
+  margin: 0 0.25rem;
+}
