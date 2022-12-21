@@ -1,4 +1,5 @@
 import { Header } from './components/Header';
+import { Tasks } from './components/Tasks';
 import { TodoForm } from './components/TodoForm';
 import './global.css';
 export function App() {
@@ -7,6 +8,7 @@ export function App() {
     <div className="App">
       <Header />
       <TodoForm />
+      <Tasks />
     </div>
   )
 }

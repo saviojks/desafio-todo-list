@@ -30,7 +30,7 @@
 }
 body {
   background: var(--gray-600);
-  color: var(var(--gray-100));
+  color: var(--gray-100);
   --webkit-font-smoothing: antialiased;
 }
 body,
@@ -40,4 +40,9 @@ button {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 1rem;
+}
+
+button {
+  background: transparent;
+  border: 0;
 }
