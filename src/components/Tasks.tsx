@@ -6,22 +6,18 @@ import { ITasks } from '../App';
 
 
 interface ITasksContainer {
-    tasks: ITasks[]
+    tasks: ITasks[],
+    onRemoveTask: (taskID: number) => void;
 }
 
-export function TasksContainer({ tasks }: ITasksContainer) {
+export function TasksContainer({ tasks, onRemoveTask }: ITasksContainer) {
     const [checked, setChecked] = useState(true)
-
-
-    // function handleAddTask(e:) {
-
-    // }
 
     return (
         <div className={styles.tasksContainer}>
             <header className={styles.tasksHeader} >
-                <p>Tarefas criadas <span className="">{tasks.length}</span></p>
-                <p>Concluídas <span className="">{tasks.length} de {tasks.length} </span></p>
+                <p className={styles.completed} >Tarefas criadas <span className="">{tasks.length}</span></p>
+                <p className={styles.completed} >Concluídas <span className="">{tasks.length} de {tasks.length} </span></p>
             </header>
             <div className={styles.tasksList}>
                 {!tasks.length && (
@@ -44,7 +40,7 @@ export function TasksContainer({ tasks }: ITasksContainer) {
                                 <label onClick={() => setChecked(!checked)} htmlFor="checkbox"></label>
                                 <p> {task.todo}</p>
                             </div>
-                            <button className={styles.deleteButton} onClick={() => { }}>
+                            <button className={styles.deleteButton} onClick={() => onRemoveTask(task.id)}>
                                 <Trash size={24} />
                             </button>
                         </div>

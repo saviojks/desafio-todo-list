@@ -19,11 +19,18 @@ export function App() {
     setTasks([...tasks, task])
   }
 
+  function removeTask(taskToDelete: number) {
+    const tasksWithoutDeleteOne = tasks.filter(
+      (task) => task.id !== taskToDelete
+    );
+    setTasks(tasksWithoutDeleteOne)
+  }
+
   return (
     <div className="App">
       <Header />
       <TodoForm onHandleAddTask={handleAddTask} />
-      <TasksContainer tasks={tasks} />
+      <TasksContainer tasks={tasks} onRemoveTask={removeTask} />
     </div>
   )
 }

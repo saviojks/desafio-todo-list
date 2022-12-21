@@ -14,7 +14,6 @@
 }
 
 .tasksHeader p {
-  color: var(--blue);
   gap: 0.5rem;
   font-size: 0.875rem;
   font-weight: bold;
@@ -22,9 +21,18 @@
 }
 
 .tasksHeader p span {
+  color: var(--gray-200);
   padding: 0.128rem 0.5rem;
   background: var(--gray-400);
   border-radius: 999px;
+}
+
+.createdTasks {
+  color: var(--blue);
+}
+
+.completed {
+  color: var(--purple);
 }
 
 .tasksList {
