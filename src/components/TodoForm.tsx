@@ -7,7 +7,6 @@ interface ITodoForm {
     onHandleAddTask: (task: ITasks) => void;
 }
 
-
 export function TodoForm({ onHandleAddTask }: ITodoForm) {
     const [todo, setTodo] = useState('')
 
@@ -26,9 +25,7 @@ export function TodoForm({ onHandleAddTask }: ITodoForm) {
         setTodo('')
     }
 
-
-    return (console.log({ todo }),
-
+    return (
         <div className={styles.todoForm}>
             <input value={todo} onChange={handleTodoChange} placeholder="Adicione uma nova tarefa" />
             <button className={styles.submitBtn} onClick={handleMountedToTask} type="submit" >
