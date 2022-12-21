@@ -35,6 +35,15 @@
   color: var(--purple);
 }
 
+.isChecked {
+  text-decoration-line: line-through;
+  color: var(--gray-300);
+}
+.notIsChecked {
+  text-decoration-line: none;
+  color: var(--gray-100);
+}
+
 .tasksList {
   width: 46rem;
 }
@@ -136,6 +145,11 @@
 
 .deleteButton {
   line-height: 0;
+  cursor: pointer;
+}
+
+.deleteButton svg:hover {
+  color: var(--red-500);
 }
 
 .isEmpty {

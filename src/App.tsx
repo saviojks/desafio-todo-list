@@ -26,11 +26,22 @@ export function App() {
     setTasks(tasksWithoutDeleteOne)
   }
 
+  function updateIsCompleted(taskChangedIsCompleted: ITasks) {
+    const taskIndex = tasks.findIndex(
+      (task) => task.id === taskChangedIsCompleted.id
+    );
+
+    const taskUpdated = [...tasks]
+    taskUpdated[taskIndex] = taskChangedIsCompleted;
+
+    setTasks(taskUpdated)
+  }
+
   return (
     <div className="App">
       <Header />
       <TodoForm onHandleAddTask={handleAddTask} />
-      <TasksContainer tasks={tasks} onRemoveTask={removeTask} />
+      <TasksContainer tasks={tasks} onRemoveTask={removeTask} onUpdateIsCompleted={updateIsCompleted} />
     </div>
   )
 }

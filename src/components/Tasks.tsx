@@ -1,23 +1,29 @@
 import styles from './Tasks.module.css';
-import { PlusCircle, Trash } from 'phosphor-react';
+import { Trash } from 'phosphor-react';
 import { useState } from 'react';
 import { Clipboard } from '../assets/Tasks';
 import { ITasks } from '../App';
 
-
 interface ITasksContainer {
     tasks: ITasks[],
     onRemoveTask: (taskID: number) => void;
+    onUpdateIsCompleted: (task: ITasks) => void;
 }
 
-export function TasksContainer({ tasks, onRemoveTask }: ITasksContainer) {
-    const [checked, setChecked] = useState(true)
+export function TasksContainer({ tasks, onRemoveTask, onUpdateIsCompleted }: ITasksContainer) {
+    function handleToCompletedChange(task: ITasks) {
+        onUpdateIsCompleted(
+            { ...task, isCompleted: !task.isCompleted }
+        )
+    }
+
+    const tasksCompleted = tasks.filter(task => task.isCompleted).length
 
     return (
         <div className={styles.tasksContainer}>
             <header className={styles.tasksHeader} >
-                <p className={styles.completed} >Tarefas criadas <span className="">{tasks.length}</span></p>
-                <p className={styles.completed} >Concluídas <span className="">{tasks.length} de {tasks.length} </span></p>
+                <p className={styles.completed} >Tarefas criadas <span>{tasks.length}</span></p>
+                <p className={styles.completed} >Concluídas <span>{`${tasksCompleted} ${tasks.length ? ` de ${tasks.length}` : ''}`}</span></p>
             </header>
             <div className={styles.tasksList}>
                 {!tasks.length && (
@@ -30,15 +36,14 @@ export function TasksContainer({ tasks, onRemoveTask }: ITasksContainer) {
                             Crie tarefas e organize seus itens a fazer
                         </p>
                     </div>
-
                 )}
                 {tasks.map((task) => {
                     return (
                         <div key={task.id} className={styles.task}>
                             <div className={styles.inputAndText}>
-                                <input className={styles.taskInput} onChange={() => setChecked(!checked)} checked={task.isCompleted} type="checkbox" />
-                                <label onClick={() => setChecked(!checked)} htmlFor="checkbox"></label>
-                                <p> {task.todo}</p>
+                                <input className={styles.taskInput} onChange={() => handleToCompletedChange(task)} checked={task.isCompleted} type="checkbox" />
+                                <label onClick={() => handleToCompletedChange(task)} htmlFor="checkbox"></label>
+                                <p className={task.isCompleted ? styles.isChecked : styles.notIsChecked}> {task.todo}</p>
                             </div>
                             <button className={styles.deleteButton} onClick={() => onRemoveTask(task.id)}>
                                 <Trash size={24} />
