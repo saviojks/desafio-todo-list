@@ -1,14 +1,40 @@
 import styles from './TodoForm.module.css';
 import { PlusCircle } from 'phosphor-react';
+import { ITasks } from '../App';
+import { ChangeEvent, useState } from 'react';
 
-export function TodoForm() {
-    return (
-        <form className={styles.todoForm}>
-            <input placeholder="Adicione uma nova tarefa" />
-            <button className={styles.submitBtn} type="submit" >
+interface ITodoForm {
+    onHandleAddTask: (task: ITasks) => void;
+}
+
+
+export function TodoForm({ onHandleAddTask }: ITodoForm) {
+    const [todo, setTodo] = useState('')
+
+    function handleTodoChange(e: ChangeEvent<HTMLInputElement>) {
+        e.preventDefault();
+        setTodo(e.target.value);
+    }
+
+    function handleMountedToTask() {
+        const newTask = {
+            id: new Date().getTime(),
+            todo,
+            isCompleted: false
+        }
+        onHandleAddTask(newTask)
+        setTodo('')
+    }
+
+
+    return (console.log({ todo }),
+
+        <div className={styles.todoForm}>
+            <input value={todo} onChange={handleTodoChange} placeholder="Adicione uma nova tarefa" />
+            <button className={styles.submitBtn} onClick={handleMountedToTask} type="submit" >
                 Criar
                 <PlusCircle size={20} weight='bold' />
             </button>
-        </form>
+        </div>
     )
 }

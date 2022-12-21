@@ -2,32 +2,20 @@ import styles from './Tasks.module.css';
 import { PlusCircle, Trash } from 'phosphor-react';
 import { useState } from 'react';
 import { Clipboard } from '../assets/Tasks';
+import { ITasks } from '../App';
 
-interface ITasks {
-    id: number;
-    todo: string
-    isCompleted: boolean
+
+interface ITasksContainer {
+    tasks: ITasks[]
 }
 
-export function Tasks() {
+export function TasksContainer({ tasks }: ITasksContainer) {
     const [checked, setChecked] = useState(true)
-    const [tasks, setTasks] = useState<ITasks[]>([
-        {
-            id: 1,
-            todo: 'Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.',
-            isCompleted: false
-        },
-        {
-            id: 2,
-            todo: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.d sequi non voluptatum, omnis temporibus dolorum architecto ipsam dolore repudiandae.',
-            isCompleted: true
-        },
-        {
-            id: 3,
-            todo: ' voluptatum, omnis.',
-            isCompleted: false
-        },
-    ])
+
+
+    // function handleAddTask(e:) {
+
+    // }
 
     return (
         <div className={styles.tasksContainer}>
