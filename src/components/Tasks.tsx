@@ -1,6 +1,5 @@
 import styles from './Tasks.module.css';
 import { Trash } from 'phosphor-react';
-import { useState } from 'react';
 import { Clipboard } from '../assets/Tasks';
 import { ITasks } from '../App';
 
