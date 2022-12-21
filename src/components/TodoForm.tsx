@@ -16,6 +16,7 @@ export function TodoForm({ onHandleAddTask }: ITodoForm) {
     }
 
     function handleMountedToTask() {
+        if (!todo) return;
         const newTask = {
             id: new Date().getTime(),
             todo,
@@ -28,7 +29,7 @@ export function TodoForm({ onHandleAddTask }: ITodoForm) {
     return (
         <div className={styles.todoForm}>
             <input value={todo} onChange={handleTodoChange} placeholder="Adicione uma nova tarefa" />
-            <button className={styles.submitBtn} onClick={handleMountedToTask} type="submit" >
+            <button className={styles.submitBtn} disabled={!todo} onClick={handleMountedToTask} type="submit" >
                 Criar
                 <PlusCircle size={20} weight='bold' />
             </button>

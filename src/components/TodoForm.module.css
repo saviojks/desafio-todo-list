@@ -32,8 +32,12 @@
   font-weight: bold;
 }
 
-.submitBtn:hover {
+.submitBtn:not(:disabled):hover {
   background: var(--blue);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
 }
 
 .submitBtn svg {

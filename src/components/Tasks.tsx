@@ -22,7 +22,7 @@ export function TasksContainer({ tasks, onRemoveTask, onUpdateIsCompleted }: ITa
     return (
         <div className={styles.tasksContainer}>
             <header className={styles.tasksHeader} >
-                <p className={styles.completed} >Tarefas criadas <span>{tasks.length}</span></p>
+                <p className={styles.createdTasks} >Tarefas criadas <span>{tasks.length}</span></p>
                 <p className={styles.completed} >Concluídas <span>{`${tasksCompleted} ${tasks.length ? ` de ${tasks.length}` : ''}`}</span></p>
             </header>
             <div className={styles.tasksList}>
